@@ -1,40 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-GB">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0">
   <info>
-    <title>Society of Petroleum Engineers</title>
+    <title>SPE Custom Style</title>
+    <id>https://www.spe.org/spe-custom-style</id>
+    <link href="https://www.spe.org/spe-custom-style" rel="self"/>
     <author>
-      <name>Seth Ayumu</name>
+      <name>Your Seth Ayumu</name>
       <email>sethayumu@gmail.com</email>
     </author>
     <category citation-format="numeric"/>
-    <category field="engineering"/>
-    <issn>1210-2709</issn>
-    <eissn>1805-2363</eissn>
-    <summary>Citation Style for the Society of Petroleum Engineers</summary>
-    <updated>2024-12-29</updated>
-    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <summary>SPE Custom Citation Style for Papers, Books, and Conference Proceedings. Edited the Acta Polytechnica style available on https://www.zotero.org/styles/acta-polytechnica?source=1</summary>
+    <updated>2024-12-29T12:00:00+00:00</updated>
   </info>
+  <citation>
+    <layout>
+      <text variable="citation-number" prefix="[" suffix="]"/>
+    </layout>
+  </citation>
+  <bibliography>
+    <layout>
+      <choose>
+        <else-if type="article-journal">
+          <group delimiter=". " suffix=". ">
+            <text macro="author"/>
+            <text macro="year-date"/>
+            <text variable="title" suffix=". "/>
+            <text variable="container-title" font-style="italic" suffix=" "/>
+            <group delimiter=" ">
+              <text variable="volume" prefix="Vol. "/>
+              <group prefix="(" suffix="):">
+                <text variable="issue"/>
+              </group>
+            </group>
+            <text variable="page" prefix=" " suffix=". "/>
+            <text variable="DOI" prefix="https://doi.org/"/>
+          </group>
+        </else-if>
+        <else-if type="book">
+          <group delimiter=". " suffix=". ">
+            <text macro="author"/>
+            <text macro="year-date"/>
+            <text variable="title" suffix=", "/>
+            <text variable="edition" suffix=". "/>
+            <group delimiter=": ">
+              <text variable="publisher-place"/>
+              <text variable="publisher"/>
+            </group>
+          </group>
+        </else-if>
+        <else-if type="paper-conference">
+          <group delimiter=". " suffix=". ">
+            <text macro="author"/>
+            <text macro="year-date"/>
+            <text variable="title" suffix=". "/>
+            <group delimiter=" ">
+              <text term="paper presented at"/>
+              <text variable="event" suffix=", "/>
+              <group delimiter=", ">
+                <text variable="publisher-place"/>
+                <date variable="issued">
+                  <date-part name="day" suffix=" "/>
+                  <date-part name="month" suffix=" "/>
+                  <date-part name="year"/>
+                </date>
+              </group>
+            </group>
+            <text variable="number" prefix="SPE-" suffix="-MS. "/>
+            <text variable="DOI" prefix="https://doi.org/"/>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter=". " suffix=". ">
+            <text macro="author"/>
+            <text macro="year-date"/>
+            <text variable="title" suffix=". "/>
+            <text variable="container-title" font-style="italic" suffix=" "/>
+            <group delimiter=" ">
+              <text variable="volume"/>
+              <text macro="issue"/>
+            </group>
+            <text variable="page" prefix=" " suffix=". "/>
+            <text variable="DOI" prefix="https://doi.org/"/>
+          </group>
+        </else>
+      </choose>
+    </layout>
+  </bibliography>
   <macro name="author">
     <names variable="author">
       <name name-as-sort-order="all" sort-separator=", " initialize-with="." delimiter-precedes-last="never" delimiter=", "/>
-      <label form="short" prefix=" "/>
-      <substitute>
-        <names variable="editor"/>
-        <names variable="translator"/>
-      </substitute>
-    </names>
-  </macro>
-  <macro name="container-author">
-    <names variable="container-author">
-      <label form="long" suffix=": " text-case="capitalize-first" strip-periods="true"/>
-      <name and="text" delimiter=" " initialize-with=". " delimiter-precedes-last="never">
-        <name-part name="given"/>
-        <name-part name="family" text-case="capitalize-first"/>
-      </name>
-      <substitute>
-        <names variable="editor"/>
-        <names variable="translator"/>
-      </substitute>
     </names>
   </macro>
   <macro name="year-date">
@@ -49,106 +103,9 @@
       </else>
     </choose>
   </macro>
-  <macro name="page">
-    <group delimiter=" ">
-      <text term="page" form="short"/>
-      <text variable="page"/>
-    </group>
-  </macro>
   <macro name="issue">
     <group delimiter=" " prefix="(" suffix=")">
       <text variable="issue"/>
     </group>
   </macro>
-  <citation collapse="citation-number" after-collapse-delimiter="; ">
-    <sort>
-      <key variable="citation-number"/>
-    </sort>
-    <layout prefix="[" suffix="]" delimiter=", ">
-      <text variable="citation-number"/>
-      <group delimiter=" ">
-        <label variable="locator" form="short" prefix=" "/>
-        <text variable="locator"/>
-      </group>
-    </layout>
-  </citation>
-  <bibliography entry-spacing="1" second-field-align="flush" et-al-min="3" et-al-use-first="1">
-    <sort>
-      <key variable="citation-number"/>
-    </sort>
-    <layout>
-      <!-- Citation Number -->
-      <text variable="citation-number" prefix="[" suffix="]"/>
-      <!-- Author(s) -->
-      <group delimiter=", " suffix=": ">
-        <text macro="author"/>
-      </group>
-      <!-- Rest of Citation -->
-      <choose>
-        <!-- Specific Formats -->
-        <if type="book report" match="any">
-          <group delimiter=". " suffix=". ">
-            <text variable="title" font-style="italic"/>
-            <text variable="number"/>
-            <group delimiter=", ">
-              <group delimiter=": ">
-                <text variable="publisher-place"/>
-                <text variable="publisher"/>
-              </group>
-              <text macro="year-date"/>
-            </group>
-          </group>
-        </if>
-        <else-if type="paper-conference chapter" match="any">
-          <group delimiter=". " suffix=". ">
-            <text variable="title" font-style="italic"/>
-            <group delimiter=" ">
-              <group delimiter=": ">
-                <text term="in" text-case="capitalize-first"/>
-                <text variable="container-title"/>
-              </group>
-              <text variable="event"/>
-              <text macro="container-author" prefix="(" suffix=")"/>
-            </group>
-            <group delimiter=", ">
-              <group delimiter=": ">
-                <text variable="publisher-place"/>
-                <text variable="publisher"/>
-              </group>
-              <text macro="year-date"/>
-              <text macro="page"/>
-            </group>
-          </group>
-        </else-if>
-        <else-if type="article-journal article-magazine article-newspaper" match="any">
-          <group delimiter=". " suffix=". ">
-            <text variable="title"/>
-            <group delimiter=", ">
-              <text variable="container-title" form="short" font-style="italic"/>
-              <group delimiter=" ">
-                <text variable="volume" font-weight="bold"/>
-                <text macro="issue"/>
-              </group>
-              <text macro="year-date"/>
-              <text macro="page"/>
-            </group>
-          </group>
-        </else-if>
-        <else>
-          <group delimiter=". " suffix=". ">
-            <text variable="title" font-style="italic"/>
-            <group delimiter=", ">
-              <group delimiter=": ">
-                <text variable="publisher-place"/>
-                <text variable="publisher"/>
-              </group>
-              <text macro="year-date"/>
-              <text variable="volume"/>
-              <text macro="page"/>
-            </group>
-          </group>
-        </else>
-      </choose>
-    </layout>
-  </bibliography>
 </style>
