@@ -5,11 +5,11 @@
     <id>https://www.spe.org/spe-custom-style</id>
     <link href="https://www.spe.org/spe-custom-style" rel="self"/>
     <author>
-      <name>Your Seth Ayumu</name>
-      <email>sethayumu@gmail.com</email>
+      <name>Your Name</name>
+      <email>your-email@example.com</email>
     </author>
     <category citation-format="numeric"/>
-    <summary>SPE Custom Citation Style for Papers, Books, and Conference Proceedings. Edited the Acta Polytechnica style available on https://www.zotero.org/styles/acta-polytechnica?source=1</summary>
+    <summary>SPE Custom Citation Style for Papers, Books, and Conference Proceedings</summary>
     <updated>2024-12-29T12:00:00+00:00</updated>
   </info>
   <citation>
@@ -20,7 +20,7 @@
   <bibliography>
     <layout>
       <choose>
-        <else-if type="article-journal">
+        <if type="article-journal">
           <group delimiter=". " suffix=". ">
             <text macro="author"/>
             <text macro="year-date"/>
@@ -35,7 +35,7 @@
             <text variable="page" prefix=" " suffix=". "/>
             <text variable="DOI" prefix="https://doi.org/"/>
           </group>
-        </else-if>
+        </if>
         <else-if type="book">
           <group delimiter=". " suffix=". ">
             <text macro="author"/>
@@ -54,7 +54,7 @@
             <text macro="year-date"/>
             <text variable="title" suffix=". "/>
             <group delimiter=" ">
-              <text term="paper presented at"/>
+              <text value="Paper presented at"/>
               <text variable="event" suffix=", "/>
               <group delimiter=", ">
                 <text variable="publisher-place"/>
