@@ -2,11 +2,9 @@
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-GB">
   <info>
     <title>Society of Petroleum Engineers</title>
-    <link href="http://www.zotero.org/styles/acta-polytechnica" rel="self"/>
-    <link href="http://www.cvut.cz/en/facilities/ph/ap/resolveuid/a1a4420631dd2b61eff7a823f4b4f949" rel="documentation"/>
     <author>
       <name>Seth Ayumu</name>
-      <email>libor.sethayumu@gmail.com</email>
+      <email>sethayumu@gmail.com</email>
     </author>
     <category citation-format="numeric"/>
     <category field="engineering"/>
