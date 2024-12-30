@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0">
   <info>
-    <title>SPE Custom Style</title>
+    <title>SPE Citation Style</title>
     <id>https://www.spe.org/spe-custom-style</id>
-    <link href="https://www.spe.org/spe-custom-style" rel="self"/>
+    <link href="https://www.spe.org/spe-citation-style" rel="self"/>
     <author>
-      <name>Your Name</name>
-      <email>your-email@example.com</email>
+      <name>Seth Ayumu</name>
+      <email>sethayumu@gmail.com</email>
     </author>
     <category citation-format="numeric"/>
-    <summary>SPE Custom Citation Style for Papers, Books, and Conference Proceedings</summary>
+    <summary>SPE Citation Style for Papers, Books, and Conference Proceedings</summary>
     <updated>2024-12-29T12:00:00+00:00</updated>
   </info>
   <citation>
